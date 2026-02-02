@@ -20,6 +20,8 @@
                         lime: '#BAD399',        // Light lime
                         cream: '#E7EFC0',       // Cream yellow-green
                         charcoal: '#2C3E2E',    // Dark charcoal green
+                        champagne: '#F3E5AB',   // Warm Gold Accent
+                        clay: '#E07A5F',        // Warm Terracotta Accent
                     },
                     fontFamily: {
                         serif: ['"Noto Serif SC"', 'serif'],
@@ -35,6 +37,40 @@
             print-color-adjust: exact;
         }
 
+        /* Texture & Glass */
+        .bg-noise {
+            position: relative;
+        }
+
+        .bg-noise::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            mix-blend-mode: multiply;
+        }
+
+        .frosted-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .glow-blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Print Styles */
         @media print {
             @page {
                 size: 1600px 900px;
@@ -93,32 +129,36 @@
         <!-- ========================================== -->
         <!-- Slide 1: 封面 (Cover)                      -->
         <!-- ========================================== -->
-        <section class="slide aspect-video bg-white overflow-hidden relative flex items-center">
+        <section class="slide aspect-video bg-stone-50 overflow-hidden relative flex items-center bg-noise">
+            <!-- Decorative Glow -->
+            <div class="glow-blob w-96 h-96 bg-champagne/50 top-[-100px] right-[-100px] rounded-full blur-[100px]">
+            </div>
+
             <!-- Hero Image -->
             <div class="w-3/5 h-full relative overflow-hidden">
                 <img src="Image (21).png" alt="Fresh Avocado" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-stone-50 opacity-90">
                 </div>
             </div>
 
             <!-- Content -->
-            <div class="w-2/5 h-full bg-white p-16 flex flex-col justify-between">
+            <div class="w-2/5 h-full relative z-10 p-16 flex flex-col justify-between">
                 <div>
-                    <div class="magazine-label text-forest mb-4">商业计划书 · 2026年2月</div>
-                    <h1 class="editorial-title text-7xl text-charcoal mb-6 leading-tight">
-                        健康陪伴<br><span class="text-forest">AI</span>
+                    <div class="magazine-label text-clay mb-4 tracking-widest">商业计划书 · 2026年2月</div>
+                    <h1 class="editorial-title text-8xl text-charcoal mb-8 leading-none tracking-tight">
+                        健康陪伴<br><span class="text-forest italic">AI</span>
                     </h1>
-                    <div class="w-16 h-1 bg-forest mb-8"></div>
-                    <p class="text-xl text-gray-700 font-light leading-relaxed">
+                    <div class="w-20 h-1.5 bg-clay mb-10"></div>
+                    <p class="text-xl text-gray-600 font-serif leading-relaxed">
                         让健康管理<br>
                         从"用户提问"<br>
-                        变成"系统<span class="font-semibold text-forest">主动接管</span>"
+                        变成"系统<span class="font-bold text-forest border-b-2 border-champagne/80">主动接管</span>"
                     </p>
                 </div>
 
                 <div class="border-t border-gray-200 pt-6">
-                    <p class="text-sm text-gray-500">演讲人</p>
-                    <p class="text-lg font-medium text-charcoal">Will</p>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Presented By</p>
+                    <p class="text-2xl font-serif font-bold text-charcoal">Will</p>
                 </div>
             </div>
 
@@ -128,21 +168,33 @@
         <!-- ========================================== -->
         <!-- Slide 2: 一、核心团队 (Core Team)            -->
         <!-- ========================================== -->
-        <section class="slide aspect-video bg-white overflow-hidden relative p-16">
-            <div class="h-full flex flex-col">
+        <!-- Slide 2: 一、核心团队 (Core Team)            -->
+        <!-- ========================================== -->
+        <section class="slide aspect-video bg-stone-50 overflow-hidden relative p-16 bg-noise">
+            <!-- Glow -->
+            <div class="glow-blob w-[500px] h-[500px] bg-forest/5 top-[-200px] left-[-200px] rounded-full blur-[120px]">
+            </div>
+
+            <div class="h-full flex flex-col relative z-10">
                 <div class="mb-12">
-                    <div class="magazine-label text-forest mb-2">CHAPTER 01</div>
+                    <div class="magazine-label text-clay mb-2">- Core Team -</div>
                     <h2 class="editorial-title text-5xl text-charcoal">核心团队</h2>
                 </div>
 
-                <div class="grid grid-cols-3 gap-10 flex-1">
-                    <!-- Member 1 -->
-                    <div class="border-l-4 border-forest pl-8 flex flex-col justify-between">
+                <div class="grid grid-cols-3 gap-8 flex-1 items-end pb-8">
+                    <!-- Member 1: Will -->
+                    <div
+                        class="frosted-card p-10 rounded-xl relative group hover:-translate-y-2 transition-all duration-500 h-[420px] flex flex-col justify-end">
+                        <div
+                            class="absolute -top-10 -right-4 text-9xl font-serif text-champagne/40 select-none group-hover:text-champagne transition-colors duration-500">
+                            1</div>
                         <div>
-                            <div class="text-6xl text-forest mb-6">01</div>
-                            <h3 class="text-3xl font-bold text-charcoal mb-2">Will</h3>
-                            <p class="magazine-label text-forest mb-6">CEO / 产品负责人</p>
-                            <ul class="space-y-3 text-gray-700 text-sm leading-relaxed">
+                            <h3 class="text-4xl font-serif font-bold text-charcoal mb-2">Will</h3>
+                            <p class="text-xs font-bold text-clay uppercase tracking-widest mb-6">CEO / Product Lead</p>
+                            <div
+                                class="w-12 h-1 bg-forest/20 mb-6 group-hover:w-full group-hover:bg-forest transition-all duration-700">
+                            </div>
+                            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed font-light">
                                 <li>• 前京东运营总监</li>
                                 <li>• 国家注册营养师</li>
                                 <li>• 小红书头部营养师博主</li>
@@ -150,26 +202,41 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- Member 2 -->
-                    <div class="border-l-4 border-sage pl-8 flex flex-col justify-between">
+
+                    <!-- Member 2: Chenyang -->
+                    <div
+                        class="frosted-card p-10 rounded-xl relative group hover:-translate-y-2 transition-all duration-500 h-[420px] flex flex-col justify-end delay-100">
+                        <div
+                            class="absolute -top-10 -right-4 text-9xl font-serif text-charcoal/5 select-none group-hover:text-sage/40 transition-colors duration-500">
+                            2</div>
                         <div>
-                            <div class="text-6xl text-sage mb-6">02</div>
-                            <h3 class="text-3xl font-bold text-charcoal mb-2">Chenyang</h3>
-                            <p class="magazine-label text-sage mb-6">CTO / 技术负责人</p>
-                            <ul class="space-y-3 text-gray-700 text-sm leading-relaxed">
+                            <h3 class="text-4xl font-serif font-bold text-charcoal mb-2">Chenyang</h3>
+                            <p class="text-xs font-bold text-sage uppercase tracking-widest mb-6">CTO / Tech Lead</p>
+                            <div
+                                class="w-12 h-1 bg-sage/20 mb-6 group-hover:w-full group-hover:bg-sage transition-all duration-700">
+                            </div>
+                            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed font-light">
                                 <li>• 欢聚时代系统架构师</li>
                                 <li>• 武汉大学人工智能硕士</li>
                                 <li>• 华中科技大学计算机学士</li>
                             </ul>
                         </div>
                     </div>
-                    <!-- Member 3 -->
-                    <div class="border-l-4 border-lime pl-8 flex flex-col justify-between">
+
+                    <!-- Member 3: Suhan -->
+                    <div
+                        class="frosted-card p-10 rounded-xl relative group hover:-translate-y-2 transition-all duration-500 h-[420px] flex flex-col justify-end delay-200">
+                        <div
+                            class="absolute -top-10 -right-4 text-9xl font-serif text-charcoal/5 select-none group-hover:text-lime/60 transition-colors duration-500">
+                            3</div>
                         <div>
-                            <div class="text-6xl text-lime mb-6">03</div>
-                            <h3 class="text-3xl font-bold text-charcoal mb-2">Suhan</h3>
-                            <p class="magazine-label text-lime mb-6">COO / 运营负责人</p>
-                            <ul class="space-y-3 text-gray-700 text-sm leading-relaxed">
+                            <h3 class="text-4xl font-serif font-bold text-charcoal mb-2">Suhan</h3>
+                            <p class="text-xs font-bold text-lime-600 uppercase tracking-widest mb-6">COO / Operations
+                            </p>
+                            <div
+                                class="w-12 h-1 bg-lime/30 mb-6 group-hover:w-full group-hover:bg-lime transition-all duration-700">
+                            </div>
+                            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed font-light">
                                 <li>• 前阿里运营专家</li>
                                 <li>• 香港城市大学数量分析硕士</li>
                             </ul>
