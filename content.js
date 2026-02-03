@@ -45,7 +45,7 @@ window.presentationData = {
                         "• 武汉大学人工智能硕士",
                         "• 华中科技大学计算机学士"
                     ],
-                    avatar: "avatar_chenyang.png"
+                    avatar: "头像cy.png"
                 },
                 {
                     number: "03",
@@ -55,7 +55,7 @@ window.presentationData = {
                         "• 前阿里运营专家",
                         "• 香港城市大学数量分析硕士"
                     ],
-                    avatar: "avatar_suhan.png"
+                    avatar: "头像sh.png"
                 }
             ],
             page_number: "02 / 12"
@@ -177,7 +177,8 @@ window.presentationData = {
         },
         validation: {
             chapter: "CHAPTER 05",
-            title: "初步验证与增长",
+            title: "150 名付费用户，健康管理闭环已初步验证",
+            subtitle: "减重结果 + 连续使用 + 数据化追踪，系统已可规模化复制",
             metrics: {
                 users_count: "150",
                 users_label: "付费种子用户",
@@ -199,10 +200,10 @@ window.presentationData = {
             title: "订阅费是基础，客户终身价值上限有空间",
             subtitle: "基础订阅 + 升级服务 + 增值商品，单用户年度价值 800–1000 元，CAC 明显可控",
             revenue_items: [
-                { item: "基础订阅 (核心)", amount: "248", desc: "AI 全年健康管理/饮食运动指导" },
-                { item: "进阶检测升级 (约30%用户)", amount: "350", desc: "专项检测数据分析" },
-                { item: "增值商品 / 服务", amount: "200~400", desc: "健康补剂，商品等" },
-                { item: "综合 ARPU / LTV", amount: "800~1000", desc: "综合年度单用户产值", is_total: true }
+                { item: "基础订阅 (核心)", amount: "248 元", desc: "AI 全年健康管理/饮食运动指导" },
+                { item: "进阶检测升级 (约30%用户)", amount: "350 元", desc: "专项检测数据分析" },
+                { item: "增值商品 / 服务", amount: "200~400 元", desc: "健康补剂，商品等" },
+                { item: "综合 ARPU / LTV", amount: "800~1000 元", desc: "综合年度单用户产值", is_total: true }
             ],
             channel_types: [
                 { type: "内容 + 私域", cac: "40-80", desc: "核心获客渠道，通过垂直内容精准吸粉" },
