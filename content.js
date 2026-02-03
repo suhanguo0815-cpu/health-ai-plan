@@ -34,7 +34,7 @@ window.presentationData = {
                         "• 小红书头部营养师博主",
                         "• 西北大学制药工程毕业"
                     ],
-                    avatar: "avatar_will.png"
+                    avatar: "头像will.png"
                 },
                 {
                     number: "02",
